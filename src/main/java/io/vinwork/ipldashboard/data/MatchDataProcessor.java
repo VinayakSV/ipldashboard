@@ -15,6 +15,8 @@ public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
   @Override
   public Match process(final MatchInput matchInput) throws Exception {
     
+    log.info("As part of batch the processing start here...");
+
     Match match = new Match();
 
     match.setId(Long.parseLong(matchInput.getId()));
@@ -44,6 +46,8 @@ public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
     match.setResultMargin(matchInput.getResult_margin());
     match.setUmpire1(matchInput.getUmpire1());
     match.setUmpire2(matchInput.getUmpire2());
+
+    log.info("As part of batch the processing ends here...");
 
     return match;
   }
